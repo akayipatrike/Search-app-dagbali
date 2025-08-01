@@ -3,6 +3,7 @@
 </script>
 
 <template>
-   
-      
+   <div>
+    PAR INGRÉDIENTS
+   </div>
 </template>
