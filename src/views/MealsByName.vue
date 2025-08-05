@@ -7,21 +7,7 @@
                 placeholder="Rechercher des Repas" />    
    </div>   
    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 p-8">
-        <div v-for="meal of meals" :key="meal.idMeal" class="bg-white shadow rounded">
-            <router-link to="/">
-                <img :src="meal.strMealThumb" alt="strMeal" class="w-full h-auto rounded"/>
-            </router-link>
-            <h3 class="p-3 font-semibold">{{ meal.strMeal }}</h3>
-            
-            <p>
-                Bring a large pot of water to a boil. Add kosher salt to the boiling water,
-                 then add the pasta. Cook according to the package instructions, about 9 minutes.
-            </p>
-            <div class="p-3">
-                <a :href="meal.strYoutube" target="_blank">Youtube</a>
-               
-            </div>
-        </div>
+      <MealItem v-for="meal of meals" :key="meal.idMeal" :meal="meal"/>
     </div>
 </template>
 
@@ -29,6 +15,7 @@
 import { computed, ref, onMounted } from 'vue';
 import store from '../store';
 import { useRoute } from 'vue-router';
+import MealItem from '../components/MealItem.vue';
 
 const route = useRoute();
 const keyword = ref('');
